@@ -2,6 +2,7 @@
 TRigger build in jenkins Automatically
 secnd trigger
 threee trigger
-through pipelineysntax
+through pipel
 again
+
 
