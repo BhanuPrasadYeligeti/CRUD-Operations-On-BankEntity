@@ -1,8 +1,9 @@
 ﻿# CRUD-Operations-On-BankEntity
 TRigger build in jenkins Automatically
 secnd trigger
-threee trigger
+threee trigger  
 through pipel
 again
+
 
 
