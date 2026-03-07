@@ -175,5 +175,15 @@ public class BankService {
     {
         return bankRepo.findById(id).orElse(null);
     }
+    public BankEntity up(int id ,BankEntity bankEntity)
+    {
+        BankEntity bank=bankRepo.findById(id).orElse(null);
+        if(bank!=null)
+        {
+            bank.setAmount(bankEntity.getAmount());
+            bank.setName(bankEntity.getName());
+        }
+        return bankRepo.save(bank);
+    }
 
 }

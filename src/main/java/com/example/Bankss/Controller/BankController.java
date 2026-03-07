@@ -176,4 +176,15 @@ public class BankController {
             return ResponseEntity.notFound().build();
         }
     }
+    @PutMapping("/tomcat/up/{id}")
+    public  ResponseEntity<BankEntity> up(@PathVariable int id,@RequestBody BankEntity bankEntity)
+    {
+        BankEntity bank=bankService.up(id,bankEntity);
+        if(bank!=null)
+        {
+            return ResponseEntity.ok(bank);
+        }else {
+            return ResponseEntity.notFound().build();
+        }
+    }
 }
