@@ -9,6 +9,7 @@ import com.itextpdf.kernel.pdf.PdfWriter;
 import com.itextpdf.kernel.pdf.canvas.PdfCanvas;
 import com.itextpdf.layout.element.Image;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
@@ -158,6 +159,21 @@ public class BankService {
 
         document.close();
         return out.toByteArray();
+    }
+    public BankEntity debit(int id,int amount)
+    {
+        BankEntity bank=bankRepo.findById(id).orElse(null);
+        if(bank!=null)
+        {
+            int actual_amount=bank.getAmount();
+            int update_amount=actual_amount-amount;
+            bank.setAmount(update_amount);
+        }
+        return bankRepo.save(bank);
+    }
+    public BankEntity throughTomact(int id)
+    {
+        return bankRepo.findById(id).orElse(null);
     }
 
 }

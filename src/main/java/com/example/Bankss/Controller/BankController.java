@@ -155,4 +155,25 @@ public class BankController {
     {
         return bankRepo.groupby();
     }
+    @PutMapping("/debit/{id}")
+    public ResponseEntity<BankEntity> debit(@PathVariable int id,@RequestBody int amount)
+    {
+        BankEntity bank=bankService.debit(id,amount);
+        if(bank!=null)
+        {
+            return ResponseEntity.ok(bank);
+        }
+        else{
+            return ResponseEntity.notFound().build();
+        }
+    }
+    @GetMapping("/tomcat/{id}")
+    public ResponseEntity<BankEntity> throughTomcat(@PathVariable int id) {
+        BankEntity bank = bankService.throughTomact(id);
+        if (bank != null) {
+            return ResponseEntity.ok(bank);
+        } else {
+            return ResponseEntity.notFound().build();
+        }
+    }
 }
